@@ -80,7 +80,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p id="subTotal-price">$000</p>
                     </div>
                 </div>
 
@@ -89,7 +89,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p id="vat-amount">$00</p>
                     </div>
                 </div>
                 <hr>
@@ -98,7 +98,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p id="total-amount">$000</p>
                     </div>
                 </div>
             </div>
@@ -133,61 +133,28 @@
             if(ticket=="economyClass"){
                 ticketTotalCost=ticketNewCount*100;
             }
+            calculateTicketTotalCost()
       }
 
-
-    //    function ticketFirstClassChange(isIncrease){
-    //     const ticketInput=document.getElementById("firstClass-count");
-    //         const ticketCount=parseInt(ticketInput.value);
-    //         let ticketNewCount=ticketCount;
-    //         if(isIncrease==true){
-    //             ticketNewCount=ticketCount+1;
-    //         }
-    //         if(isIncrease==false && ticketCount>0){
-    //             ticketNewCount=ticketCount-1;
-    //         }
-    //         ticketInput.value=ticketNewCount;
-    //         const totalCost=ticketNewCount*150;
-    //   }
-       
-     
-    //   function ticketEconomyClassChange(isIncrease){
-    //     const ticketInput=document.getElementById("ticketCount");
-    //         const ticketCount=parseInt(ticketInput.value);
-    //         let ticketNewCount=ticketCount;
-    //         if(isIncrease==true){
-    //             ticketNewCount=ticketCount+1;
-    //         }
-    //         if(isIncrease==false && ticketCount>0){
-    //             ticketNewCount=ticketCount-1;
-    //         }
-    //         ticketInput.value=ticketNewCount;
-    //         const totalCost=ticketNewCount*100;
-    //   }
-       
+      function calculateTicketTotalCost(){
+        const firstClassCount=getTicketInputValue('firstClass');
+        const economyClassCount=getTicketInputValue('economyClass');
         
-         //     document.getElementById("addTicket").addEventListener("click",function(){
-    //         ticketCountChange(true);
-    //     });
+        const subTotalPrice=firstClassCount*150+economyClassCount*100;
+        document.getElementById("subTotal-price").innerText="$ "+subTotalPrice;
 
-    //   document.getElementById("ticketDecrease").addEventListener("click",function(){
-    //     ticketCountChange(false);
-    //     });
-        // document.getElementById("addTicket").addEventListener("click",function(){
-        //     const ticketInput=document.getElementById('ticketCount');
-        //     const ticketCount=parseInt(ticketInput.value);
-        //     const ticketNewCount=ticketCount+1;
-        //     ticketInput.value=ticketNewCount;
-        //     const totalCost=ticketNewCount*100;
-        // });
-        // document.getElementById("ticketDecrease").addEventListener("click",function(){
-        //     const ticketInput=document.getElementById("ticketCount");
-        //     const ticketCount=parseInt(ticketInput.value);
-        //     const ticketNewCount=ticketCount-1;
-        //     ticketInput.value=ticketNewCount;
-        //     const totalCost=ticketNewCount*100;
-        // });
+        const vat=subTotalPrice*0.1;
+        document.getElementById("vat-amount").innerText="$"+vat;
 
+        const totalPrice=subTotalPrice+vat;
+        document.getElementById("total-amount").innerText="$ "+totalPrice;
+      }
+
+      function getTicketInputValue(ticket){
+        const ticketInput= document.getElementById(ticket+"-count");
+        const ticketCount=parseInt(ticketInput.value);
+        return ticketCount;
+      }
     </script>
     <!--Thank You-->
 </body>
