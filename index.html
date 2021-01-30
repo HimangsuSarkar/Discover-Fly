@@ -111,12 +111,14 @@
             <h1>discover <br> around the world</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
         </div>
+
   <!--added message box section-->
         <div id="successfully-message" class="message-box">
             <i class="fas fa-check-circle fa-9x"></i>
             <h2 class="text-center">Booking Successfully Done</h2>
             <h3>Happy Journey  &#128525;</h3>
         </div>
+
     </section>
 
    <!--js script code start-->
@@ -134,20 +136,20 @@
             }
             ticketInput.value=ticketNewCount;
 
-            calculateTicketTotalCost()
+            calculateTicketTotalCost() 
       }
 
 // a function for calculate ticket sub total price,vat and grand total price
       function calculateTicketTotalCost(){
         const firstClassCount=getTicketInputValue('firstClass');
         const economyClassCount=getTicketInputValue('economyClass');
-        
+        //calculate sub total
         const subTotalPrice=firstClassCount*150+economyClassCount*100;
         document.getElementById("subTotal-price").innerText="$ "+subTotalPrice;
-
+        //calculate VAT 
         const vat=subTotalPrice*0.1;
         document.getElementById("vat-amount").innerText="$"+vat;
-
+        //calculate total price
         const totalPrice=subTotalPrice+vat;
         document.getElementById("total-amount").innerText="$ "+totalPrice;
       }
@@ -165,7 +167,8 @@
           bookingForm.style.display="none";
           const showMessage=document.getElementById("successfully-message");
           showMessage.style.display="block";
-      })
+          
+      });
     </script>
 <!--js script code end-->
 
