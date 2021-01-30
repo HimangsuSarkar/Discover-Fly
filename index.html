@@ -69,8 +69,8 @@
                 </div>
                 <div class="plus-minus-btn">
                     <div class="plus-minus-btn">
-                        <button id="addTicket" class="btn btn-default"><i class="fas fa-plus"></i></button>
-                        <button id="ticketDecrease" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                        <button onclick=" ticketCountChange(true);" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                        <button onclick=" ticketCountChange(false);" class="btn btn-default"><i class="fas fa-minus"></i></button>
                     </div>
                 </div>
             </div>
@@ -113,20 +113,45 @@
 
    
     <script>
-        document.getElementById("addTicket").addEventListener("click",function(){
-            const ticketInput=document.getElementById('ticketCount');
+    
+     
+      function ticketCountChange(isIncrease){
+        const ticketInput=document.getElementById("ticketCount");
             const ticketCount=parseInt(ticketInput.value);
-            const ticketNewCount=ticketCount+1;
+            let ticketNewCount=ticketCount;
+            if(isIncrease==true){
+                ticketNewCount=ticketCount+1;
+            }
+            if(isIncrease==false && ticketCount>0){
+                ticketNewCount=ticketCount-1;
+            }
             ticketInput.value=ticketNewCount;
             const totalCost=ticketNewCount*100;
-        });
-        document.getElementById("ticketDecrease").addEventListener("click",function(){
-            const ticketInput=document.getElementById("ticketCount");
-            const ticketCount=parseInt(ticketInput.value);
-            const ticketNewCount=ticketCount-1;
-            ticketInput.value=ticketNewCount;
-            const totalCost=ticketNewCount*100;
-        });
+      }
+       
+        
+         //     document.getElementById("addTicket").addEventListener("click",function(){
+    //         ticketCountChange(true);
+    //     });
+
+    //   document.getElementById("ticketDecrease").addEventListener("click",function(){
+    //     ticketCountChange(false);
+    //     });
+        // document.getElementById("addTicket").addEventListener("click",function(){
+        //     const ticketInput=document.getElementById('ticketCount');
+        //     const ticketCount=parseInt(ticketInput.value);
+        //     const ticketNewCount=ticketCount+1;
+        //     ticketInput.value=ticketNewCount;
+        //     const totalCost=ticketNewCount*100;
+        // });
+        // document.getElementById("ticketDecrease").addEventListener("click",function(){
+        //     const ticketInput=document.getElementById("ticketCount");
+        //     const ticketCount=parseInt(ticketInput.value);
+        //     const ticketNewCount=ticketCount-1;
+        //     ticketInput.value=ticketNewCount;
+        //     const totalCost=ticketNewCount*100;
+        // });
+
     </script>
     <!--Thank You-->
 </body>
