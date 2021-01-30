@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flight Booking</title>
-
+    <!--Font awesome-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -56,6 +56,7 @@
                     <input id="firstClass-count" class="inp-style inp-width" type="number" name="" value="0" >
         
                 </div>
+                <!--added plus-minus first class section-->
                 <div class="plus-minus-btn">
                     <button onclick="ticketCountChange('firstClass',true);" class="btn btn-default"><i class="fas fa-plus"></i></button>
                     <button onclick="ticketCountChange('firstClass',false);"  class="btn btn-default"><i class="fas fa-minus"></i></button>
@@ -67,6 +68,7 @@
                     <label for="">Economy ($100)</label>
                     <input id="economyClass-count" class="inp-style inp-width" type="number" name="" value="0">
                 </div>
+                <!--added plus-minus first class section-->
                 <div class="plus-minus-btn">
                     <div class="plus-minus-btn">
                         <button onclick="ticketCountChange('economyClass',true);" class="btn btn-default"><i class="fas fa-plus"></i></button>
@@ -109,15 +111,17 @@
             <h1>discover <br> around the world</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
         </div>
-
-        <div id="successfully-message">
-            <h1>Your Booking is 100% completed successfully.</h1>
-            <h2>Happy Journey</h2>
+  <!--added message box section-->
+        <div id="successfully-message" class="message-box">
+            <i class="fas fa-check-circle fa-9x"></i>
+            <h2 class="text-center">Booking Successfully Done</h2>
+            <h3>Happy Journey  &#128525;</h3>
         </div>
     </section>
 
-   
+   <!--js script code start-->
     <script>
+        
           function ticketCountChange(ticket,isIncrease){
             const ticketInput=document.getElementById(ticket+"-count");
             const ticketCount=parseInt(ticketInput.value);
@@ -162,6 +166,8 @@
           showMessage.style.display="block";
       })
     </script>
+<!--js script code end-->
+
     <!--Thank You-->
 </body>
 

@@ -120,11 +120,13 @@ nav ul li a:hover, a.active{
     display: flex;
     justify-content: space-between;
 }
-#successfully-message{
-    background-color: #fff;
-    border: 1px solid #ddd;
+/*added style for message box*/
+.message-box{
+   background-color: rgba(113, 177, 236, 0.795);
     padding: 25px;
-    border-radius: 5px;
+    border-radius: 15px;
     float: left;
     display: none;
+    text-align:center;
+
 }
