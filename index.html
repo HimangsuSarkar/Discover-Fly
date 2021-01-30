@@ -30,7 +30,7 @@
 
     <!--Booking Section-->
     <main class="main-content container">
-        <div class="booking-form">
+        <div id="bookingForm"  class="booking-form">
             <h3>Booking Flights</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
@@ -102,12 +102,17 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="bookingBtn" class="btn-style">Book Now</button>
         </div>
 
         <div class="booking-content">
             <h1>discover <br> around the world</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
+        </div>
+
+        <div id="successfully-message">
+            <h1>Your Booking is 100% completed successfully.</h1>
+            <h2>Happy Journey</h2>
         </div>
     </section>
 
@@ -147,6 +152,15 @@
         const ticketCount=parseInt(ticketInput.value);
         return ticketCount;
       }
+
+
+
+      document.getElementById("bookingBtn").addEventListener("click",function(){
+          const bookingForm=document.getElementById("bookingForm");
+          bookingForm.style.display="none";
+          const showMessage=document.getElementById("successfully-message");
+          showMessage.style.display="block";
+      })
     </script>
     <!--Thank You-->
 </body>

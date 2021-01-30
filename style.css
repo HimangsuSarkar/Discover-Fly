@@ -120,3 +120,11 @@ nav ul li a:hover, a.active{
     display: flex;
     justify-content: space-between;
 }
+#successfully-message{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 25px;
+    border-radius: 5px;
+    float: left;
+    display: none;
+}
