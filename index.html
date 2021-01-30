@@ -53,24 +53,24 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <input id="firstClass-count" class="inp-style inp-width" type="number" name="" value="1">
         
                 </div>
                 <div class="plus-minus-btn">
-                    <button class="btn btn-default"><i class="fas fa-plus"></i></button>
-                    <button class="btn btn-default"><i class="fas fa-minus"></i></button>
+                    <button onclick="ticketCountChange('firstClass',true);" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                    <button onclick="ticketCountChange('firstClass',false);"  class="btn btn-default"><i class="fas fa-minus"></i></button>
                 </div>
             </div>
             
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
-                    <input id="ticketCount" class="inp-style inp-width" type="number" name="" value="1">
+                    <input id="economyClass-count" class="inp-style inp-width" type="number" name="" value="1">
                 </div>
                 <div class="plus-minus-btn">
                     <div class="plus-minus-btn">
-                        <button onclick=" ticketCountChange(true);" class="btn btn-default"><i class="fas fa-plus"></i></button>
-                        <button onclick=" ticketCountChange(false);" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                        <button onclick="ticketCountChange('economyClass',true);" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                        <button onclick="ticketCountChange('economyClass',false);" class="btn btn-default"><i class="fas fa-minus"></i></button>
                     </div>
                 </div>
             </div>
@@ -113,10 +113,10 @@
 
    
     <script>
-    
-     
-      function ticketCountChange(isIncrease){
-        const ticketInput=document.getElementById("ticketCount");
+
+
+          function ticketCountChange(ticket,isIncrease){
+             const ticketInput=document.getElementById(ticket+"-count");
             const ticketCount=parseInt(ticketInput.value);
             let ticketNewCount=ticketCount;
             if(isIncrease==true){
@@ -126,8 +126,44 @@
                 ticketNewCount=ticketCount-1;
             }
             ticketInput.value=ticketNewCount;
-            const totalCost=ticketNewCount*100;
+            let ticketTotalCost=0;
+            if(ticket=="firstClass"){
+                ticketTotalCost=ticketNewCount*150;
+            }
+            if(ticket=="economyClass"){
+                ticketTotalCost=ticketNewCount*100;
+            }
       }
+
+
+    //    function ticketFirstClassChange(isIncrease){
+    //     const ticketInput=document.getElementById("firstClass-count");
+    //         const ticketCount=parseInt(ticketInput.value);
+    //         let ticketNewCount=ticketCount;
+    //         if(isIncrease==true){
+    //             ticketNewCount=ticketCount+1;
+    //         }
+    //         if(isIncrease==false && ticketCount>0){
+    //             ticketNewCount=ticketCount-1;
+    //         }
+    //         ticketInput.value=ticketNewCount;
+    //         const totalCost=ticketNewCount*150;
+    //   }
+       
+     
+    //   function ticketEconomyClassChange(isIncrease){
+    //     const ticketInput=document.getElementById("ticketCount");
+    //         const ticketCount=parseInt(ticketInput.value);
+    //         let ticketNewCount=ticketCount;
+    //         if(isIncrease==true){
+    //             ticketNewCount=ticketCount+1;
+    //         }
+    //         if(isIncrease==false && ticketCount>0){
+    //             ticketNewCount=ticketCount-1;
+    //         }
+    //         ticketInput.value=ticketNewCount;
+    //         const totalCost=ticketNewCount*100;
+    //   }
        
         
          //     document.getElementById("addTicket").addEventListener("click",function(){
