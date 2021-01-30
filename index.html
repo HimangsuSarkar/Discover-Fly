@@ -114,7 +114,8 @@
    
     <script>
           function ticketCountChange(ticket,isIncrease){
-            const ticketCount=getTicketInputValue();
+            const ticketInput=document.getElementById(ticket+"-count");
+            const ticketCount=parseInt(ticketInput.value);
             let ticketNewCount=ticketCount;
             if(isIncrease==true){
                 ticketNewCount=ticketCount+1;
